@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:python_darslari/services/firebase_service.dart';
 import 'package:python_darslari/theme/theme.dart';
 
@@ -76,8 +75,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
 
               // Realtime Stream Builder
               Expanded(
-                child: StreamBuilder<QuerySnapshot>(
-                  stream: _firebase.leaderboardStream,
+                child: FutureBuilder<List<Map<String, dynamic>>>(
+                  future: _firebase.getLeaderboard(),
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {
                       return Center(
@@ -94,12 +93,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                       );
                     }
 
-                    final docs = snapshot.data?.docs ?? [];
-                    final List<Map<String, dynamic>> players = docs.map((doc) {
-                      final data = doc.data() as Map<String, dynamic>;
-                      data['uid'] = doc.id;
-                      return data;
-                    }).toList();
+                    final List<Map<String, dynamic>> players = snapshot.data ?? [];
+
 
                     if (players.isEmpty) {
                       return const Center(

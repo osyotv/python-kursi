@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:python_darslari/data/app_state.dart';
 import 'package:python_darslari/screens/games_screen.dart';
 import 'package:python_darslari/services/firebase_service.dart';
@@ -187,7 +187,7 @@ class _MultiplayerGameCarScreenState extends State<MultiplayerGameCarScreen> wit
   }
 
   // 🔥 Firebase Real-Time Multiplayer Sync
-  StreamSubscription<DocumentSnapshot>? _roomSubscription;
+  StreamSubscription<dynamic>? _roomSubscription;
 
   void _startMultiplayerSync() {
     // 🔥 Real-time: Firebase Firestore'dan raqiblar holatini tinglash

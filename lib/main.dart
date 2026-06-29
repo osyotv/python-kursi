@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:python_darslari/data/app_state.dart';
 import 'package:python_darslari/screens/home_screen.dart';
 import 'package:python_darslari/screens/lessons_list_screen.dart';
@@ -8,29 +7,12 @@ import 'package:python_darslari/screens/vocabulary_screen.dart';
 import 'package:python_darslari/screens/games_screen.dart';
 import 'package:python_darslari/screens/registration_screen.dart';
 import 'package:python_darslari/theme/theme.dart';
-import 'package:python_darslari/services/firebase_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Firebase initializatsiyasini sinxron xatoliklardan himoyalash
-  try {
-    Firebase.initializeApp().timeout(const Duration(seconds: 4)).then((_) async {
-      try {
-        await FirebaseService().signInAnonymously().timeout(const Duration(seconds: 3));
-        print('Firebase successfully initialized anonymously in background');
-      } catch (e) {
-        print('Firebase Auth error/timeout in background: $e');
-      }
-    }).catchError((e) {
-      print('Firebase initialization failed or timed out: $e');
-    });
-  } catch (e) {
-    print('Firebase initialization synchronous error (options missing or invalid): $e');
-  }
-  
   final appState = AppState();
-  await appState.init(); // Bu faqat lokal SharedPreferencesni yuklaydi
+  await appState.init();
   
   runApp(
     AppStateProvider(
@@ -39,6 +21,7 @@ void main() async {
     ),
   );
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:python_darslari/data/app_state.dart';
 import 'package:python_darslari/screens/multiplayer_game_car.dart';
 import 'package:python_darslari/services/firebase_service.dart';
@@ -24,7 +24,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   bool _isHost = false;
   
   List<Map<String, dynamic>> _lobbyPlayers = [];
-  StreamSubscription<DocumentSnapshot>? _roomSubscription;
+  StreamSubscription<dynamic>? _roomSubscription;
 
   @override
   void initState() {
