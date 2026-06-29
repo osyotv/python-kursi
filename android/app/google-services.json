@@ -1,28 +1,23 @@
 {
   "project_info": {
-    "project_number": "123456789012",
-    "project_id": "python-darslari-mock",
-    "storage_bucket": "python-darslari-mock.appspot.com"
+    "project_number": "000000000000",
+    "project_id": "python-kursi-placeholder",
+    "storage_bucket": "python-kursi-placeholder.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:1234567890abcdef",
+        "mobilesdk_app_id": "1:000000000000:android:0000000000000000",
         "android_client_info": {
           "package_name": "uz.muhammadzokir.python.python_darslari"
         }
       },
-      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyMockKeyForCompilationOnly12345"
+          "current_key": "AIzaSyPlaceholder_000000000000000000"
         }
       ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
+      "services": {}
     }
   ],
   "configuration_version": "1"
