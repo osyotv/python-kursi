@@ -74,8 +74,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 300,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppTheme.neonCyan.withOpacity(0.08),
-                blurRadius: 100,
+                boxShadow: [
+                  BoxShadow(
+                    color: AppTheme.neonCyan.withOpacity(0.08),
+                    blurRadius: 100,
+                    spreadRadius: 50,
+                  )
+                ],
               ),
             ),
           ),
@@ -87,8 +92,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 350,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppTheme.neonPurple.withOpacity(0.08),
-                blurRadius: 120,
+                boxShadow: [
+                  BoxShadow(
+                    color: AppTheme.neonPurple.withOpacity(0.08),
+                    blurRadius: 120,
+                    spreadRadius: 60,
+                  )
+                ],
               ),
             ),
           ),
